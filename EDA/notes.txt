@@ -1,0 +1,24 @@
+#EDA
+
+first we check for any missign values in the data also check how mnay missing values are there in the data and in each column
+
+we now check which col are numerical and non numerical
+now we check ifthe primarykey has any duplicated values
+check if the target col data is good and not bad like no->98% and yes->2%
+relation of every col  to other col
+
+check for lower tenure is highr chance of churn o not same fr higher tenure
+same for no of services
+review thechurn prob rules
+
+look for correlation
+search for any outliers
+
+
+
+
+
+
+#FINDINGS
+
+1) Churn prob rules too aggressive
