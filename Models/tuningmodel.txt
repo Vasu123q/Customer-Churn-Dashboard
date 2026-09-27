@@ -1,0 +1,283 @@
+#CatBoost
+model_cat = CatBoostClassifier(
+    iterations=600,
+    learning_rate=0.3,
+    depth=10,
+    auto_class_weights='Balanced',
+    verbose=0,
+    random_state=42
+)
+
+Accuracy : 0.8413333333333334
+Precision: 0.2803234501347709
+Recall   : 0.13181242078580482
+F1-Score : 0.1793103448275862
+ROC-AUC  : 0.6436467266402187
+
+Confusion Matrix:
+[[4944  267]
+ [ 685  104]]
+ trshold:-0.3
+
+
+
+
+
+
+
+#CatBoost
+model_c=CatBoostClassifier(
+    iterations=300,
+    learning_rate=0.05,
+    depth=6,
+    class_weights=[1, (y_train == 0).sum() / (y_train == 1).sum()],
+    random_state=42,
+    verbose=0
+)
+
+Accuracy : 0.652
+Precision: 0.22160308615516502
+Recall   : 0.6552598225602028
+F1-Score : 0.33119795003203073
+ROC-AUC  : 0.7150772264676531
+
+Confusion Matrix:
+[[3395 1816]
+ [ 272  517]]
+thresold:0.57
+
+
+model_cat = CatBoostClassifier(
+    iterations=700,
+    learning_rate=0.03,
+    depth=6,
+    l2_leaf_reg=5,
+    random_strength=1,
+    class_weights=[1, 4],
+    random_state=42,
+    verbose=0
+)
+Accuracy : 0.7931666666666667
+Precision: 0.2871939736346516
+Recall   : 0.3865652724968314
+F1-Score : 0.3295515937331172
+ROC-AUC  : 0.7119289676537325
+
+model_cat = CatBoostClassifier(
+    iterations=700,
+    learning_rate=0.03,
+    depth=6,
+    l2_leaf_reg=7,
+    random_strength=0.5,
+    class_weights=[1, (y_train == 0).sum() / (y_train == 1).sum()],
+    random_state=42,
+    verbose=0
+)
+Accuracy : 0.6711666666666667
+Precision: 0.22567191844300277
+Recall   : 0.6172370088719898
+F1-Score : 0.33050559891415
+ROC-AUC  : 0.708690960114353
+
+
+
+
+model_cat = CatBoostClassifier(
+    iterations=600,
+    learning_rate=0.05,
+    depth=5,
+    l2_leaf_reg=5,
+    random_strength=2,
+    class_weights=[1, (y_train == 0).sum() / (y_train == 1).sum()],
+    random_state=42,
+    verbose=0
+)
+Accuracy : 0.6621666666666667
+Precision: 0.22291853178155774
+Recall   : 0.6311787072243346
+F1-Score : 0.32947403241812767
+ROC-AUC  : 0.710308139722956
+
+Confusion Matrix:
+[[3475 1736]
+ [ 291  498]]
+
+
+
+ratio = (y_train == 0).sum() / (y_train == 1).sum()
+
+model_cat = CatBoostClassifier(
+    iterations=1000,
+    learning_rate=0.02,
+    depth=6,
+    l2_leaf_reg=5,
+    random_strength=1,
+    class_weights=[1, ratio],
+    random_state=42,
+    verbose=0
+)
+Accuracy : 0.668
+Precision: 0.22471395881006864
+Recall   : 0.6223067173637515
+F1-Score : 0.3301950235373235
+ROC-AUC  : 0.7128777746402207
+
+Confusion Matrix:
+[[3517 1694]
+ [ 298  491]]
+
+
+
+iterations=800,
+learning_rate=0.02,
+depth=6,
+l2_leaf_reg=3,
+random_strength=1,
+class_weights=[1, ratio]
+
+ Accuracy : 0.6545
+Precision: 0.22038327526132404
+Recall   : 0.641318124207858
+F1-Score : 0.3280388978930308
+ROC-AUC  : 0.713894440419129
+
+Confusion Matrix:
+[[3421 1790]
+ [ 283  506]]
+
+ iterations=1000,
+learning_rate=0.02,
+depth=6,
+l2_leaf_reg=7,
+random_strength=1,
+class_weights=[1, ratio]
+
+Accuracy : 0.6651666666666667
+Precision: 0.22423146473779385
+Recall   : 0.6286438529784537
+F1-Score : 0.33055648117294234
+ROC-AUC  : 0.7134639384027014
+
+Confusion Matrix:
+[[3495 1716]
+ [ 293  496]]
+
+
+iterations=500,
+learning_rate=0.05,
+depth=5,
+l2_leaf_reg=3,
+random_strength=1,
+class_weights=[1, ratio]
+
+ Accuracy : 0.655
+Precision: 0.21920210434020165
+Recall   : 0.6337135614702155
+F1-Score : 0.3257328990228013
+ROC-AUC  : 0.7126223920881026
+
+iterations=700,
+learning_rate=0.03,
+depth=8,
+l2_leaf_reg=5,
+random_strength=1,
+class_weights=[1, ratio]
+
+Accuracy : 0.7338333333333333
+Precision: 0.24527112232030265
+Recall   : 0.49302915082382764
+F1-Score : 0.327578947368421
+ROC-AUC  : 0.6996898196488417
+
+iterations=600,
+learning_rate=0.05,
+depth=6,
+l2_leaf_reg=5,
+random_strength=1,
+class_weights=[1, 3]
+
+Accuracy : 0.8338333333333333
+Precision: 0.32491582491582494
+Recall   : 0.24461343472750316
+F1-Score : 0.27910339840925524
+ROC-AUC  : 0.7092637466955322
+
+Confusion Matrix:
+[[4810  401]
+ [ 596  193]]
+
+ ratio = (y_train == 0).sum() / (y_train == 1).sum()
+
+model_cat = CatBoostClassifier(
+iterations=600,
+learning_rate=0.05,
+depth=6,
+l2_leaf_reg=5,
+random_strength=1,
+class_weights=[1, ratio]
+)
+
+Accuracy : 0.69
+Precision: 0.23076923076923078
+Recall   : 0.5817490494296578
+F1-Score : 0.3304535637149028
+ROC-AUC  : 0.7061393235864758
+
+
+
+
+Threshold: 0.3
+Precision: 0.1752
+Recall:    0.8821
+F1:        0.2923
+
+Threshold: 0.4
+Precision: 0.1932
+Recall:    0.7871
+F1:        0.3102
+
+Threshold: 0.45
+Precision: 0.2075
+Recall:    0.7326
+F1:        0.3234
+
+Threshold: 0.5
+Precision: 0.2216
+Recall:    0.6553
+F1:        0.3312
+
+Threshold: 0.55
+Precision: 0.2416
+Recall:    0.5475
+F1:        0.3353
+
+Threshold: 0.57
+Precision: 0.2559
+Recall:    0.5108
+F1:        0.3409
+
+Threshold: 0.577
+Precision: 0.2581
+Recall:    0.4930
+F1:        0.3389
+
+Threshold: 0.58
+Precision: 0.2632
+Recall:    0.4930
+F1:        0.3432
+
+Threshold: 0.6
+Precision: 0.2728
+Recall:    0.4474
+F1:        0.3389
+
+Threshold: 0.65
+Precision: 0.2948
+Recall:    0.3232
+F1:        0.3083
+
+Threshold: 0.7
+Precision: 0.3508
+Recall:    0.2117
+F1:        0.2640
+
